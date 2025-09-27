@@ -1,0 +1,27 @@
+# Core ML/AI libraries
+torch
+transformers
+sentence-transformers
+scikit-learn
+
+# Web framework
+gradio
+
+# Data processing
+pandas
+numpy
+
+# Visualization
+plotly
+matplotlib
+seaborn
+
+# API requests
+requests
+beautifulsoup4
+
+# NLP 
+# spacy
+
+# Development tools
+# jupyter  
