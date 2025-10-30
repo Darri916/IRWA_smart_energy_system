@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Smart Energy Forecasting System - Spectacular UI
-Modern, Professional, Interactive Dashboard
+Smart Energy Forecasting System - Enhanced Professional UI with Commercialization
+Modern, Professional, Interactive Dashboard with Business Model
 """
 
 import sys
@@ -24,7 +24,7 @@ from main import SmartEnergySystem
 # Initialize the system
 energy_system = SmartEnergySystem(enable_ai=True, enable_db=True, enable_security=True)
 
-# Professional Custom CSS with Modern Design
+# Enhanced Professional Custom CSS with Modern Design
 custom_css = """
 <style>
     /* Modern Color Palette */
@@ -37,43 +37,68 @@ custom_css = """
         --info: #3b82f6;
         --dark: #1f2937;
         --light: #f3f4f6;
+        --gold: #fbbf24;
+        --premium: #6366f1;
     }
     
     /* Glassmorphism Header */
     .energy-header {
         background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         color: white;
-        padding: 2.5rem;
-        border-radius: 20px;
+        padding: 3rem 2.5rem;
+        border-radius: 24px;
         text-align: center;
         margin-bottom: 2rem;
-        box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+        box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.18);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .energy-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+        animation: float 20s infinite;
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(180deg); }
     }
     
     .energy-header h1 {
-        font-size: 2.5rem;
-        font-weight: 800;
+        font-size: 2.8rem;
+        font-weight: 900;
         margin-bottom: 0.5rem;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        letter-spacing: -0.5px;
+        position: relative;
+        z-index: 1;
     }
     
     .energy-header h2 {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         font-weight: 400;
         opacity: 0.95;
+        position: relative;
+        z-index: 1;
     }
     
-    /* Metric Cards with Gradient Borders */
+    /* Enhanced Metric Cards with Gradient Borders */
     .metric-card {
         background: white;
-        padding: 1.8rem;
-        border-radius: 16px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        border-left: 5px solid var(--success);
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+        border-left: 6px solid var(--success);
         margin: 1rem 0;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
     }
@@ -84,112 +109,143 @@ custom_css = """
         top: 0;
         left: 0;
         right: 0;
-        height: 3px;
+        height: 4px;
         background: linear-gradient(90deg, var(--primary), var(--secondary));
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
     
     .metric-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+    
+    .metric-card:hover::before {
+        opacity: 1;
     }
     
     .metric-card h3 {
         color: var(--dark);
-        font-size: 0.95rem;
-        font-weight: 600;
+        font-size: 1rem;
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 0.8rem;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
     }
     
     .metric-card .value {
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--primary);
-        margin: 0.5rem 0;
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0.8rem 0;
     }
     
     .metric-card .label {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
         color: #6b7280;
+        line-height: 1.6;
     }
     
-    /* Status Indicators with Animation */
+    /* Status Indicators with Enhanced Animation */
     .status-indicator {
         display: inline-block;
-        width: 14px;
-        height: 14px;
+        width: 16px;
+        height: 16px;
         border-radius: 50%;
-        margin-right: 8px;
-        animation: pulse 2s infinite;
+        margin-right: 10px;
+        animation: pulse-glow 2s infinite;
+        box-shadow: 0 0 0 0 currentColor;
     }
     
-    @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.6; }
+    @keyframes pulse-glow {
+        0% {
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+        }
+        50% {
+            box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+        }
     }
     
     .status-active { 
         background: linear-gradient(135deg, #10b981, #059669);
-        box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
     }
     
     .status-warning { 
         background: linear-gradient(135deg, #f59e0b, #d97706);
-        box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
     }
     
     .status-error { 
         background: linear-gradient(135deg, #ef4444, #dc2626);
-        box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
     }
     
-    /* AI Response Card */
+    /* Enhanced AI Response Card */
     .ai-response {
         background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-        border-radius: 16px;
-        padding: 2rem;
-        margin: 1.5rem 0;
-        border-left: 5px solid var(--info);
-        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin: 2rem 0;
+        border-left: 6px solid var(--info);
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.15);
+        transition: all 0.3s ease;
+    }
+    
+    .ai-response:hover {
+        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.25);
+        transform: translateY(-2px);
     }
     
     .ai-response h3 {
         color: var(--info);
-        font-size: 1.3rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
     }
     
     /* Energy Grid Layout */
     .energy-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
         margin: 2rem 0;
     }
     
-    /* Forecast Card */
+    /* Enhanced Forecast Card */
     .forecast-card {
         background: white;
-        border-radius: 16px;
-        padding: 1.5rem;
-        box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+        border-radius: 18px;
+        padding: 2rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         transition: all 0.3s ease;
+        border: 1px solid #e5e7eb;
     }
     
     .forecast-card:hover {
-        box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+        transform: translateY(-4px);
+        border-color: var(--primary);
     }
     
-    /* Alert Badges */
+    /* Enhanced Alert Badges */
     .badge {
         display: inline-block;
-        padding: 0.4rem 1rem;
-        border-radius: 20px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        margin: 0.3rem;
+        padding: 0.5rem 1.2rem;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin: 0.4rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .badge:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
     
     .badge-success {
@@ -207,40 +263,663 @@ custom_css = """
         color: white;
     }
     
-    /* Loading Animation */
-    .loading {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        border: 3px solid rgba(102, 126, 234, 0.3);
-        border-radius: 50%;
-        border-top-color: var(--primary);
-        animation: spin 1s ease-in-out infinite;
+    .badge-premium {
+        background: linear-gradient(135deg, #6366f1, #4f46e5);
+        color: white;
     }
     
-    @keyframes spin {
-        to { transform: rotate(360deg); }
+    .badge-gold {
+        background: linear-gradient(135deg, #fbbf24, #f59e0b);
+        color: white;
     }
     
     /* Statistics Panel */
     .stats-panel {
         background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin: 2rem 0;
+        box-shadow: 0 4px 15px rgba(139, 92, 246, 0.1);
+    }
+    
+    /* Commercialization Section */
+    .commercial-section {
+        background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+        border-radius: 24px;
+        padding: 3rem;
+        margin: 2rem 0;
+        border-left: 8px solid var(--gold);
+        box-shadow: 0 8px 30px rgba(251, 191, 36, 0.2);
+    }
+    
+    .pricing-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin: 1.5rem 0;
+        box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+        border: 2px solid #e5e7eb;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+        border-color: var(--primary);
+    }
+    
+    .pricing-card.featured {
+        border-color: var(--gold);
+        border-width: 3px;
+    }
+    
+    .pricing-card.featured::before {
+        content: '⭐ MOST POPULAR';
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: linear-gradient(135deg, var(--gold), var(--warning));
+        color: white;
+        padding: 0.5rem 2rem;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+        transform: rotate(45deg) translate(30%, -50%);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    
+    .pricing-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .pricing-header h3 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 0.5rem;
+    }
+    
+    .pricing-price {
+        font-size: 3.5rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 1rem 0;
+    }
+    
+    .pricing-period {
+        font-size: 1.2rem;
+        color: #6b7280;
+        font-weight: 500;
+    }
+    
+    .pricing-features {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0;
+    }
+    
+    .pricing-features li {
+        padding: 1rem 0;
+        border-bottom: 1px solid #e5e7eb;
+        font-size: 1rem;
+        color: #374151;
+        display: flex;
+        align-items: center;
+    }
+    
+    .pricing-features li:last-child {
+        border-bottom: none;
+    }
+    
+    .pricing-features li::before {
+        content: '✓';
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background: linear-gradient(135deg, var(--success), #059669);
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 24px;
+        margin-right: 1rem;
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+    
+    .cta-button {
+        display: block;
+        width: 100%;
+        padding: 1.2rem 2rem;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        text-align: center;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+    }
+    
+    .market-info-card {
+        background: white;
         border-radius: 16px;
         padding: 2rem;
-        margin: 1.5rem 0;
+        margin: 1rem 0;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        border-left: 4px solid var(--info);
+    }
+    
+    .market-info-card h4 {
+        color: var(--dark);
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
     }
     
     /* Responsive Typography */
     @media (max-width: 768px) {
         .energy-header h1 {
-            font-size: 1.8rem;
+            font-size: 2rem;
         }
         .energy-grid {
             grid-template-columns: 1fr;
         }
+        .pricing-price {
+            font-size: 2.5rem;
+        }
+    }
+    
+    /* Animated Background Elements */
+    @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    
+    .gradient-bg {
+        background: linear-gradient(-45deg, #667eea, #764ba2, #10b981, #3b82f6);
+        background-size: 400% 400%;
+        animation: gradient-shift 15s ease infinite;
     }
 </style>
 """
+
+# [Previous functions remain the same until create_dashboard_html]
+# ... (keep all existing functions: create_dashboard, create_main_overview_chart, 
+#      create_5day_forecast_chart, create_performance_chart, create_energy_mix_chart, 
+#      ask_ai_question, search_system, create_search_results_chart, 
+#      get_system_stats_display, create_stats_chart)
+
+# ============================================================================
+# COMMERCIALIZATION FUNCTIONS
+# ============================================================================
+
+def create_commercialization_content() -> str:
+    """Create comprehensive commercialization section"""
+    
+    html = f"""
+    <div class="commercial-section">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h1 style="font-size: 3rem; font-weight: 900; color: var(--dark); margin-bottom: 1rem;">
+                💼 Commercialization Strategy
+            </h1>
+            <p style="font-size: 1.3rem; color: #6b7280;">
+                Transform Your Energy Management with AI-Powered Intelligence
+            </p>
+        </div>
+        
+        <div class="market-info-card">
+            <h4>🎯 Target Market</h4>
+            <div style="line-height: 2;">
+                <span class="badge badge-info">Utility Companies</span>
+                <span class="badge badge-info">Smart Grid Operators</span>
+                <span class="badge badge-info">Industrial Facilities</span>
+                <span class="badge badge-info">Renewable Energy Producers</span>
+                <span class="badge badge-info">Government Energy Departments</span>
+                <span class="badge badge-info">Commercial Buildings</span>
+            </div>
+        </div>
+        
+        <div class="market-info-card">
+            <h4>💡 Value Proposition</h4>
+            <ul style="line-height: 2; color: #374151;">
+                <li><strong>Cost Reduction:</strong> Up to 30% savings on energy costs through predictive optimization</li>
+                <li><strong>Renewable Integration:</strong> Maximize renewable energy utilization by 40-50%</li>
+                <li><strong>Grid Stability:</strong> Real-time balancing prevents blackouts and reduces penalties</li>
+                <li><strong>Carbon Reduction:</strong> Track and minimize carbon footprint automatically</li>
+                <li><strong>AI-Driven Insights:</strong> Actionable recommendations from multi-agent system</li>
+                <li><strong>Scalability:</strong> From single facility to city-wide grid management</li>
+            </ul>
+        </div>
+        
+        <div class="market-info-card">
+            <h4>📊 Market Analysis</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); padding: 1.5rem; border-radius: 12px;">
+                    <h5 style="color: var(--info); font-weight: 700; margin-bottom: 0.5rem;">Market Size</h5>
+                    <p style="font-size: 2rem; font-weight: 800; color: var(--dark);">$15.8B</p>
+                    <p style="color: #6b7280; font-size: 0.9rem;">Global Energy Management Market by 2027</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #ecfdf5, #d1fae5); padding: 1.5rem; border-radius: 12px;">
+                    <h5 style="color: var(--success); font-weight: 700; margin-bottom: 0.5rem;">Growth Rate</h5>
+                    <p style="font-size: 2rem; font-weight: 800; color: var(--dark);">14.2%</p>
+                    <p style="color: #6b7280; font-size: 0.9rem;">Annual CAGR 2025-2030</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); padding: 1.5rem; border-radius: 12px;">
+                    <h5 style="color: var(--warning); font-weight: 700; margin-bottom: 0.5rem;">ROI Period</h5>
+                    <p style="font-size: 2rem; font-weight: 800; color: var(--dark);">8-12 mo</p>
+                    <p style="color: #6b7280; font-size: 0.9rem;">Average payback period for customers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    """
+    
+    return html
+
+def create_pricing_tiers() -> str:
+    """Create detailed pricing tier cards"""
+    
+    html = """
+    <div style="max-width: 1400px; margin: 0 auto; padding: 2rem;">
+        <h2 style="text-align: center; font-size: 2.5rem; font-weight: 900; color: var(--dark); margin-bottom: 3rem;">
+            💰 Flexible Pricing Plans
+        </h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+            
+            <!-- Starter Plan -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>🌱 Starter</h3>
+                    <p style="color: #6b7280;">For Small Facilities</p>
+                </div>
+                <div style="text-align: center;">
+                    <span class="pricing-price">$15</span>
+                    <span class="pricing-period">/month</span>
+                </div>
+                <ul class="pricing-features">
+                    <li>Up to 5 MW capacity monitoring</li>
+                    <li>Basic weather forecasting</li>
+                    <li>Daily demand predictions</li>
+                    <li>Email support</li>
+                    <li>1 user account</li>
+                    <li>Basic analytics dashboard</li>
+                    <li>Monthly reports</li>
+                </ul>
+                <button class="cta-button">Get Started</button>
+            </div>
+            
+            <!-- Professional Plan (Featured) -->
+            <div class="pricing-card featured">
+                <div class="pricing-header">
+                    <h3>⚡ Professional</h3>
+                    <p style="color: #6b7280;">For Medium Enterprises</p>
+                </div>
+                <div style="text-align: center;">
+                    <span class="pricing-price">$30</span>
+                    <span class="pricing-period">/month</span>
+                </div>
+                <ul class="pricing-features">
+                    <li>Up to 50 MW capacity monitoring</li>
+                    <li>Advanced 5-day forecasting</li>
+                    <li>Hourly demand predictions</li>
+                    <li>AI-powered recommendations</li>
+                    <li>Real-time grid balancing</li>
+                    <li>5 user accounts</li>
+                    <li>Priority support (24/7)</li>
+                    <li>Custom alerts & notifications</li>
+                    <li>API access</li>
+                    <li>Weekly detailed reports</li>
+                </ul>
+                <button class="cta-button">Start Free Trial</button>
+            </div>
+            
+            <!-- Enterprise Plan -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>🏢 Enterprise</h3>
+                    <p style="color: #6b7280;">For Utilities & Cities</p>
+                </div>
+                <div style="text-align: center;">
+                    <span class="pricing-price">Custom</span>
+                    <span class="pricing-period">contact us</span>
+                </div>
+                <ul class="pricing-features">
+                    <li>Unlimited capacity monitoring</li>
+                    <li>Multi-site management</li>
+                    <li>Advanced multi-agent AI system</li>
+                    <li>Predictive maintenance</li>
+                    <li>Custom integrations</li>
+                    <li>Unlimited user accounts</li>
+                    <li>Dedicated account manager</li>
+                    <li>On-premise deployment option</li>
+                    <li>Custom AI model training</li>
+                    <li>SLA guarantee (99.9% uptime)</li>
+                    <li>White-label solution</li>
+                </ul>
+                <button class="cta-button">Contact Sales</button>
+            </div>
+        </div>
+        
+        <!-- Add-ons Section -->
+        <div style="margin-top: 4rem; background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 6px 25px rgba(0,0,0,0.08);">
+            <h3 style="text-align: center; font-size: 2rem; font-weight: 800; color: var(--dark); margin-bottom: 2rem;">
+                🎁 Optional Add-Ons
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <div style="padding: 1.5rem; border: 2px solid #e5e7eb; border-radius: 16px;">
+                    <h4 style="color: var(--primary); font-weight: 700; margin-bottom: 1rem;">🔌 IoT Integration</h4>
+                    <p style="font-size: 2rem; font-weight: 800; color: var(--dark);">$50/mo</p>
+                    <p style="color: #6b7280;">Connect smart meters and IoT devices</p>
+                </div>
+                <div style="padding: 1.5rem; border: 2px solid #e5e7eb; border-radius: 16px;">
+                    <h4 style="color: var(--success); font-weight: 700; margin-bottom: 1rem;">🌍 Carbon Trading</h4>
+                    <p style="font-size: 2rem; font-weight: 800; color: var(--dark);">$20/mo</p>
+                    <p style="color: #6b7280;">Carbon credit tracking & trading platform</p>
+                </div>
+                <div style="padding: 1.5rem; border: 2px solid #e5e7eb; border-radius: 16px;">
+                    <h4 style="color: var(--warning); font-weight: 700; margin-bottom: 1rem;">📱 Mobile App</h4>
+                    <p style="font-size: 2rem; font-weight: 800; color: var(--dark);">$15/mo</p>
+                    <p style="color: #6b7280;">iOS & Android apps for on-the-go monitoring</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ROI Calculator Preview -->
+        <div style="margin-top: 4rem; background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border-radius: 20px; padding: 3rem; text-align: center;">
+            <h3 style="font-size: 2rem; font-weight: 800; color: var(--dark); margin-bottom: 1rem;">
+                📈 Calculate Your ROI
+            </h3>
+            <p style="font-size: 1.2rem; color: #6b7280; margin-bottom: 2rem;">
+                Most customers see 20-30% cost reduction within the first year
+            </p>
+            <button class="cta-button" style="max-width: 400px; margin: 0 auto;">
+                Launch ROI Calculator
+            </button>
+        </div>
+    </div>
+    """
+    
+    return html
+
+def create_deployment_strategy() -> str:
+    """Create deployment and go-to-market strategy"""
+    
+    html = """
+    <div style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+        <h2 style="text-align: center; font-size: 2.5rem; font-weight: 900; color: var(--dark); margin-bottom: 3rem;">
+            🚀 Deployment & Go-To-Market Strategy
+        </h2>
+        
+        <!-- Deployment Options -->
+        <div class="market-info-card">
+            <h4>☁️ Deployment Options</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                <div style="background: #f0f9ff; padding: 2rem; border-radius: 16px; border: 2px solid #3b82f6;">
+                    <h5 style="color: var(--info); font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem;">🌐 Cloud SaaS</h5>
+                    <ul style="color: #374151; line-height: 1.8;">
+                        <li>Quick deployment (24-48 hours)</li>
+                        <li>Pay-as-you-go pricing</li>
+                        <li>Automatic updates</li>
+                        <li>99.9% uptime SLA</li>
+                    </ul>
+                </div>
+                <div style="background: #ecfdf5; padding: 2rem; border-radius: 16px; border: 2px solid #10b981;">
+                    <h5 style="color: var(--success); font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem;">🏢 On-Premise</h5>
+                    <ul style="color: #374151; line-height: 1.8;">
+                        <li>Full data control</li>
+                        <li>Custom security policies</li>
+                        <li>Air-gapped option available</li>
+                        <li>Integration with legacy systems</li>
+                    </ul>
+                </div>
+                <div style="background: #fef3c7; padding: 2rem; border-radius: 16px; border: 2px solid #f59e0b;">
+                    <h5 style="color: var(--warning); font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem;">🔄 Hybrid Model</h5>
+                    <ul style="color: #374151; line-height: 1.8;">
+                        <li>Best of both worlds</li>
+                        <li>Critical data on-premise</li>
+                        <li>Analytics in cloud</li>
+                        <li>Flexible scaling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Go-To-Market Phases -->
+        <div class="market-info-card" style="margin-top: 2rem;">
+            <h4>📅 Go-To-Market Timeline</h4>
+            <div style="position: relative; padding: 2rem 0;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="text-align: center; padding: 1.5rem; background: linear-gradient(135deg, #eff6ff, #dbeafe); border-radius: 12px;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📍</div>
+                        <h5 style="font-weight: 700; color: var(--dark);">Q1 2025</h5>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Beta Launch</p>
+                        <p style="color: #6b7280; font-size: 0.85rem;">5-10 pilot customers</p>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem; background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-radius: 12px;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚀</div>
+                        <h5 style="font-weight: 700; color: var(--dark);">Q2 2025</h5>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Public Launch</p>
+                        <p style="color: #6b7280; font-size: 0.85rem;">50+ customers target</p>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem; background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 12px;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📈</div>
+                        <h5 style="font-weight: 700; color: var(--dark);">Q3-Q4 2025</h5>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Scale Up</p>
+                        <p style="color: #6b7280; font-size: 0.85rem;">200+ customers, enterprise focus</p>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem; background: linear-gradient(135deg, #fae8ff, #f3e8ff); border-radius: 12px;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌍</div>
+                        <h5 style="font-weight: 700; color: var(--dark);">2026</h5>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Global Expansion</p>
+                        <p style="color: #6b7280; font-size: 0.85rem;">International markets</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Revenue Model -->
+        <div class="market-info-card" style="margin-top: 2rem;">
+            <h4>💵 Revenue Streams</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                <div style="padding: 1.5rem; background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border-radius: 12px;">
+                    <h5 style="color: var(--info); font-weight: 700;">1. Subscription Revenue (70%)</h5>
+                    <p style="color: #374151; margin-top: 0.5rem;">Monthly/Annual SaaS subscriptions across all tiers</p>
+                </div>
+                <div style="padding: 1.5rem; background: linear-gradient(135deg, #ecfdf5, #d1fae5); border-radius: 12px;">
+                    <h5 style="color: var(--success); font-weight: 700;">2. Professional Services (20%)</h5>
+                    <p style="color: #374151; margin-top: 0.5rem;">Implementation, training, consulting, and customization</p>
+                </div>
+                <div style="padding: 1.5rem; background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 12px;">
+                    <h5 style="color: var(--warning); font-weight: 700;">3. Add-ons & Integrations (10%)</h5>
+                    <p style="color: #374151; margin-top: 0.5rem;">IoT, carbon trading, mobile apps, API access</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Competitive Advantages -->
+        <div class="market-info-card" style="margin-top: 2rem;">
+            <h4>🏆 Competitive Advantages</h4>
+            <div style="margin-top: 1rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <div style="padding: 1rem; border-left: 4px solid var(--primary); background: #f9fafb; border-radius: 8px;">
+                        <strong style="color: var(--primary);">🤖 Multi-Agent AI Architecture</strong>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin-top: 0.5rem;">Unlike competitors with single AI models, our system uses specialized agents for weather, demand, and grid optimization</p>
+                    </div>
+                    <div style="padding: 1rem; border-left: 4px solid var(--success); background: #f9fafb; border-radius: 8px;">
+                        <strong style="color: var(--success);">⚡ Real-Time Processing</strong>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin-top: 0.5rem;">Sub-second response time for grid balancing decisions vs. competitors' 5-10 minute delays</p>
+                    </div>
+                    <div style="padding: 1rem; border-left: 4px solid var(--warning); background: #f9fafb; border-radius: 8px;">
+                        <strong style="color: var(--warning);">🌱 Renewable-First Design</strong>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin-top: 0.5rem;">Built specifically for renewable integration, not retrofitted from traditional energy management</p>
+                    </div>
+                    <div style="padding: 1rem; border-left: 4px solid var(--info); background: #f9fafb; border-radius: 8px;">
+                        <strong style="color: var(--info);">🔒 Enterprise Security</strong>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin-top: 0.5rem;">Bank-grade encryption, audit trails, and compliance with international energy regulations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    """
+    
+    return html
+
+def create_business_model_canvas() -> str:
+    """Create visual business model canvas"""
+    
+    html = """
+    <div style="max-width: 1400px; margin: 0 auto; padding: 2rem;">
+        <h2 style="text-align: center; font-size: 2.5rem; font-weight: 900; color: var(--dark); margin-bottom: 3rem;">
+            📊 Business Model Canvas
+        </h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-bottom: 2rem;">
+            <!-- Top Row -->
+            <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <h4 style="font-weight: 800; color: var(--dark); margin-bottom: 1rem; font-size: 1.1rem;">🤝 Key Partners</h4>
+                <ul style="color: #374151; font-size: 0.9rem; line-height: 1.8;">
+                    <li>Weather data providers</li>
+                    <li>Cloud infrastructure (AWS/Azure)</li>
+                    <li>IoT device manufacturers</li>
+                    <li>System integrators</li>
+                    <li>Energy consultants</li>
+                </ul>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #e0f2fe, #bae6fd); padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); grid-column: span 2;">
+                <h4 style="font-weight: 800; color: var(--dark); margin-bottom: 1rem; font-size: 1.1rem;">⚙️ Key Activities</h4>
+                <ul style="color: #374151; font-size: 0.9rem; line-height: 1.8;">
+                    <li>AI model development & training</li>
+                    <li>Platform maintenance & updates</li>
+                    <li>Customer support & success</li>
+                    <li>Sales & marketing</li>
+                    <li>R&D for new features</li>
+                    <li>Compliance & security audits</li>
+                </ul>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #d1fae5, #a7f3d0); padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); grid-column: span 2;">
+                <h4 style="font-weight: 800; color: var(--dark); margin-bottom: 1rem; font-size: 1.1rem;">💎 Value Propositions</h4>
+                <ul style="color: #374151; font-size: 0.9rem; line-height: 1.8; font-weight: 500;">
+                    <li><strong>30% cost reduction</strong> in energy expenses</li>
+                    <li><strong>Real-time</strong> grid optimization</li>
+                    <li><strong>AI-powered</strong> predictive analytics</li>
+                    <li><strong>Seamless</strong> renewable integration</li>
+                    <li><strong>Carbon neutrality</strong> tracking</li>
+                    <li><strong>24/7 autonomous</strong> operation</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-bottom: 2rem;">
+            <div style="background: linear-gradient(135deg, #fae8ff, #f3e8ff); padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <h4 style="font-weight: 800; color: var(--dark); margin-bottom: 1rem; font-size: 1.1rem;">🔑 Key Resources</h4>
+                <ul style="color: #374151; font-size: 0.9rem; line-height: 1.8;">
+                    <li>Proprietary AI algorithms</li>
+                    <li>Multi-agent architecture</li>
+                    <li>Engineering team</li>
+                    <li>Cloud infrastructure</li>
+                    <li>Customer database</li>
+                </ul>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #ffedd5, #fed7aa); padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); grid-column: span 2;">
+                <h4 style="font-weight: 800; color: var(--dark); margin-bottom: 1rem; font-size: 1.1rem;">👥 Customer Relationships</h4>
+                <ul style="color: #374151; font-size: 0.9rem; line-height: 1.8;">
+                    <li><strong>Self-service:</strong> Automated onboarding & dashboard</li>
+                    <li><strong>Dedicated support:</strong> 24/7 technical assistance</li>
+                    <li><strong>Account management:</strong> Enterprise customers</li>
+                    <li><strong>Community:</strong> User forums & knowledge base</li>
+                    <li><strong>Training:</strong> Webinars & certification programs</li>
+                </ul>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #dbeafe, #bfdbfe); padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); grid-column: span 2;">
+                <h4 style="font-weight: 800; color: var(--dark); margin-bottom: 1rem; font-size: 1.1rem;">🎯 Customer Segments</h4>
+                <ul style="color: #374151; font-size: 0.9rem; line-height: 1.8;">
+                    <li><strong>Primary:</strong> Utility companies & grid operators</li>
+                    <li><strong>Secondary:</strong> Industrial facilities (>5MW)</li>
+                    <li><strong>Tertiary:</strong> Renewable energy producers</li>
+                    <li><strong>Growing:</strong> Smart cities & municipalities</li>
+                    <li><strong>Emerging:</strong> Large commercial buildings</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem;">
+            <div style="background: linear-gradient(135deg, #fee2e2, #fecaca); padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); grid-column: span 2;">
+                <h4 style="font-weight: 800; color: var(--dark); margin-bottom: 1rem; font-size: 1.1rem;">💰 Cost Structure</h4>
+                <ul style="color: #374151; font-size: 0.9rem; line-height: 1.8;">
+                    <li><strong>R&D (35%):</strong> AI development, new features</li>
+                    <li><strong>Infrastructure (25%):</strong> Cloud hosting, APIs</li>
+                    <li><strong>Sales & Marketing (20%):</strong> Customer acquisition</li>
+                    <li><strong>Operations (15%):</strong> Support, maintenance</li>
+                    <li><strong>Admin (5%):</strong> Legal, compliance, overhead</li>
+                </ul>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #d1fae5, #a7f3d0); padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); grid-column: span 3;">
+                <h4 style="font-weight: 800; color: var(--dark); margin-bottom: 1rem; font-size: 1.1rem;">💵 Revenue Streams</h4>
+                <ul style="color: #374151; font-size: 0.9rem; line-height: 1.8;">
+                    <li><strong>Subscription fees (70%):</strong> $15-$30+/month per customer</li>
+                    <li><strong>Implementation (15%):</strong> One-time setup fees ($5K-$50K)</li>
+                    <li><strong>Professional services (10%):</strong> Consulting, training, customization</li>
+                    <li><strong>Add-ons (5%):</strong> IoT integration, mobile apps, carbon trading</li>
+                    <li><strong>Target Year 1:</strong> $2.5M ARR with 200 customers</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Financial Projections -->
+        <div style="margin-top: 3rem; background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 6px 25px rgba(0,0,0,0.1);">
+            <h3 style="text-align: center; font-size: 2rem; font-weight: 800; color: var(--dark); margin-bottom: 2rem;">
+                📈 3-Year Financial Projections
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #eff6ff, #dbeafe); border-radius: 16px;">
+                    <h4 style="color: var(--info); font-weight: 700; margin-bottom: 1rem;">Year 1 (2025)</h4>
+                    <p style="font-size: 2.5rem; font-weight: 900; color: var(--dark);">$2.5M</p>
+                    <p style="color: #6b7280;">Revenue</p>
+                    <p style="margin-top: 1rem; color: #374151;"><strong>200</strong> customers</p>
+                    <p style="color: #374151;"><strong>-$500K</strong> net (investment phase)</p>
+                </div>
+                <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #ecfdf5, #d1fae5); border-radius: 16px;">
+                    <h4 style="color: var(--success); font-weight: 700; margin-bottom: 1rem;">Year 2 (2026)</h4>
+                    <p style="font-size: 2.5rem; font-weight: 900; color: var(--dark);">$8.5M</p>
+                    <p style="color: #6b7280;">Revenue</p>
+                    <p style="margin-top: 1rem; color: #374151;"><strong>650</strong> customers</p>
+                    <p style="color: #374151;"><strong>+$1.2M</strong> net (break-even+)</p>
+                </div>
+                <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 16px;">
+                    <h4 style="color: var(--warning); font-weight: 700; margin-bottom: 1rem;">Year 3 (2027)</h4>
+                    <p style="font-size: 2.5rem; font-weight: 900; color: var(--dark);">$18M</p>
+                    <p style="color: #6b7280;">Revenue</p>
+                    <p style="margin-top: 1rem; color: #374151;"><strong>1,400</strong> customers</p>
+                    <p style="color: #374151;"><strong>+$5.4M</strong> net (30% margin)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    """
+    
+    return html
 
 # ============================================================================
 # DASHBOARD CREATION FUNCTIONS
@@ -752,7 +1431,133 @@ System recommends {"maintaining current operations" if grid_status == "BALANCED"
 # ============================================================================
 # AI INTERACTION FUNCTIONS
 # ============================================================================
-
+def get_transparency_report_display() -> str:
+    """Get and display transparency report"""
+    try:
+        transparency = energy_system.get_transparency_report()
+        
+        if transparency['status'] != 'success':
+            return f"<p>Transparency report unavailable: {transparency.get('message', 'Unknown error')}</p>"
+        
+        # Create beautiful HTML report
+        html = """
+        <div class="stats-panel">
+            <h3>🔍 System Transparency Report</h3>
+            <p style="color: #6b7280; font-size: 0.9rem; margin-bottom: 2rem;">
+                Full disclosure of system capabilities, limitations, and data sources
+            </p>
+            
+            <!-- Capabilities Section -->
+            <div class="market-info-card" style="margin-bottom: 2rem;">
+                <h4 style="color: var(--success);">✅ System Capabilities</h4>
+                <ul style="line-height: 2; color: #374151;">
+        """
+        
+        for capability in transparency.get('system_capabilities', []):
+            html += f"<li>{capability}</li>"
+        
+        html += """
+                </ul>
+            </div>
+            
+            <!-- Limitations Section -->
+            <div class="market-info-card" style="margin-bottom: 2rem; border-left-color: var(--warning);">
+                <h4 style="color: var(--warning);">⚠️ System Limitations (Important!)</h4>
+                <ul style="line-height: 2; color: #374151;">
+        """
+        
+        for limitation in transparency.get('limitations', []):
+            html += f"<li><strong>Limitation:</strong> {limitation}</li>"
+        
+        html += """
+                </ul>
+            </div>
+            
+            <!-- Data Sources Section -->
+            <div class="market-info-card" style="margin-bottom: 2rem; border-left-color: var(--info);">
+                <h4 style="color: var(--info);">📊 Data Sources</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+        """
+        
+        for source in transparency.get('data_sources', []):
+            reliability_color = {
+                'High': 'var(--success)',
+                'Medium': 'var(--warning)',
+                'Low': 'var(--danger)'
+            }.get(source.get('reliability', 'Low'), 'var(--danger)')
+            
+            html += f"""
+                    <div style="padding: 1.5rem; background: #f9fafb; border-radius: 12px; border-left: 4px solid {reliability_color};">
+                        <h5 style="color: var(--dark); font-weight: 700; margin-bottom: 0.5rem;">{source.get('name')}</h5>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin: 0.3rem 0;">
+                            <strong>Type:</strong> {source.get('type')}
+                        </p>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin: 0.3rem 0;">
+                            <strong>Update Frequency:</strong> {source.get('update_frequency')}
+                        </p>
+                        <p style="color: {reliability_color}; font-size: 0.9rem; margin: 0.3rem 0;">
+                            <strong>Reliability:</strong> {source.get('reliability')}
+                        </p>
+                    </div>
+            """
+        
+        html += """
+                </div>
+            </div>
+            
+            <!-- Model Information Section -->
+            <div class="market-info-card" style="margin-bottom: 2rem; border-left-color: var(--premium);">
+                <h4 style="color: var(--premium);">🤖 AI Model Information</h4>
+        """
+        
+        model_info = transparency.get('model_info', {})
+        html += f"""
+                <div style="background: #f9fafb; padding: 1.5rem; border-radius: 12px; margin-top: 1rem;">
+                    <p style="color: #374151; margin: 0.5rem 0;">
+                        <strong>LLM Provider:</strong> {model_info.get('llm_provider', 'N/A').upper()}
+                    </p>
+                    <p style="color: #374151; margin: 0.5rem 0;">
+                        <strong>NLP Capabilities:</strong> {', '.join(model_info.get('nlp_capabilities', []))}
+                    </p>
+                    <p style="color: #374151; margin: 0.5rem 0;">
+                        <strong>Prediction Methods:</strong> {model_info.get('prediction_methods', 'N/A')}
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Privacy Measures Section -->
+            <div class="market-info-card" style="border-left-color: var(--success);">
+                <h4 style="color: var(--success);">🔒 Privacy & Security Measures</h4>
+                <ul style="line-height: 2; color: #374151;">
+        """
+        
+        for measure in transparency.get('privacy_measures', []):
+            html += f"<li>✓ {measure}</li>"
+        
+        html += f"""
+                </ul>
+            </div>
+            
+            <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #eff6ff, #dbeafe); border-radius: 12px; text-align: center;">
+                <p style="color: #374151; margin: 0;">
+                    <strong>Report Generated:</strong> {transparency.get('generated_at', 'N/A')}
+                </p>
+                <p style="color: #6b7280; font-size: 0.9rem; margin-top: 0.5rem;">
+                    This transparency report is updated in real-time and reflects the current system state.
+                </p>
+            </div>
+        </div>
+        """
+        
+        return html
+        
+    except Exception as e:
+        return f"""
+        <div class="ai-response" style="border-left-color: #ef4444;">
+            <h3>❌ Error</h3>
+            <p>Failed to generate transparency report: {str(e)}</p>
+        </div>
+        """
 def ask_ai_question(question: str, city: str) -> str:
     """Process AI question with beautiful formatting"""
     if not question.strip():
@@ -924,6 +1729,177 @@ def get_system_stats_display() -> tuple:
     except Exception as e:
         return f"<p>Error: {str(e)}</p>", None
 
+
+# ============================================================================
+# TRANSPARENCY REPORTING FUNCTION (NEW)
+# ============================================================================
+
+def get_transparency_report_display() -> str:
+    """Get and display comprehensive transparency report"""
+    try:
+        transparency = energy_system.get_transparency_report()
+        
+        if transparency['status'] != 'success':
+            return f"""
+            <div class="ai-response" style="border-left-color: #ef4444;">
+                <h3>⚠️ Transparency Report Unavailable</h3>
+                <p>{transparency.get('message', 'Unknown error occurred')}</p>
+            </div>
+            """
+        
+        # Create beautiful HTML report
+        html = """
+        <div class="stats-panel">
+            <h3>🔍 System Transparency Report</h3>
+            <p style="color: #6b7280; font-size: 0.9rem; margin-bottom: 2rem;">
+                Complete disclosure of system capabilities, limitations, data sources, and privacy measures
+            </p>
+            
+            <!-- Capabilities Section -->
+            <div class="market-info-card" style="margin-bottom: 2rem; border-left-color: var(--success);">
+                <h4 style="color: var(--success);">✅ What This System CAN Do</h4>
+                <ul style="line-height: 2; color: #374151; margin-top: 1rem;">
+        """
+        
+        for capability in transparency.get('system_capabilities', []):
+            html += f"<li><strong>✓</strong> {capability}</li>"
+        
+        html += """
+                </ul>
+            </div>
+            
+            <!-- Limitations Section (CRITICAL FOR TRANSPARENCY) -->
+            <div class="market-info-card" style="margin-bottom: 2rem; border-left-color: var(--warning); background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);">
+                <h4 style="color: var(--warning);">⚠️ What This System CANNOT Do (Important!)</h4>
+                <p style="color: #92400e; font-size: 0.95rem; margin-bottom: 1rem;">
+                    <strong>Honest disclosure of limitations builds trust.</strong> Users should know our boundaries.
+                </p>
+                <ul style="line-height: 2; color: #374151; margin-top: 1rem;">
+        """
+        
+        for limitation in transparency.get('limitations', []):
+            html += f"<li><strong>⚠</strong> {limitation}</li>"
+        
+        html += """
+                </ul>
+            </div>
+            
+            <!-- Data Sources Section -->
+            <div class="market-info-card" style="margin-bottom: 2rem; border-left-color: var(--info);">
+                <h4 style="color: var(--info);">📊 Where Our Data Comes From</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+        """
+        
+        for source in transparency.get('data_sources', []):
+            reliability_color = {
+                'High': 'var(--success)',
+                'Medium': 'var(--warning)',
+                'Low': 'var(--danger)'
+            }.get(source.get('reliability', 'Low'), 'var(--danger)')
+            
+            reliability_icon = {
+                'High': '🟢',
+                'Medium': '🟡',
+                'Low': '🔴'
+            }.get(source.get('reliability', 'Low'), '⚪')
+            
+            html += f"""
+                    <div style="padding: 1.5rem; background: white; border-radius: 12px; border: 2px solid #e5e7eb; border-left: 4px solid {reliability_color};">
+                        <h5 style="color: var(--dark); font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem;">
+                            {source.get('name')}
+                        </h5>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin: 0.5rem 0;">
+                            <strong>Type:</strong> {source.get('type')}
+                        </p>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin: 0.5rem 0;">
+                            <strong>Updates:</strong> Every {source.get('update_frequency')}
+                        </p>
+                        <p style="color: {reliability_color}; font-size: 1rem; margin: 0.8rem 0; font-weight: 600;">
+                            {reliability_icon} <strong>Reliability:</strong> {source.get('reliability')}
+                        </p>
+                    </div>
+            """
+        
+        html += """
+                </div>
+            </div>
+            
+            <!-- Model Information Section -->
+            <div class="market-info-card" style="margin-bottom: 2rem; border-left-color: var(--premium);">
+                <h4 style="color: var(--premium);">🤖 AI Models & Technologies Used</h4>
+        """
+        
+        model_info = transparency.get('model_info', {})
+        llm_provider = model_info.get('llm_provider', 'N/A').upper()
+        llm_badge_color = 'var(--primary)' if llm_provider == 'ANTHROPIC' else 'var(--info)'
+        
+        html += f"""
+                <div style="background: linear-gradient(135deg, #faf5ff, #f3e8ff); padding: 1.5rem; border-radius: 12px; margin-top: 1rem;">
+                    <div style="margin-bottom: 1rem;">
+                        <span style="background: {llm_badge_color}; color: white; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 700;">
+                            LLM PROVIDER: {llm_provider}
+                        </span>
+                    </div>
+                    <p style="color: #374151; margin: 0.8rem 0; font-size: 0.95rem;">
+                        <strong>🧠 NLP Capabilities:</strong> 
+                        <br/>
+                        {', '.join(model_info.get('nlp_capabilities', []))}
+                    </p>
+                    <p style="color: #374151; margin: 0.8rem 0; font-size: 0.95rem;">
+                        <strong>📐 Prediction Methods:</strong> {model_info.get('prediction_methods', 'N/A')}
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Privacy Measures Section -->
+            <div class="market-info-card" style="border-left-color: var(--success); background: linear-gradient(135deg, #f0fdf4, #dcfce7);">
+                <h4 style="color: var(--success);">🔒 Privacy & Security Measures</h4>
+                <p style="color: #166534; font-size: 0.95rem; margin-bottom: 1rem;">
+                    Your data protection is our priority. Here's how we keep your information safe:
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+        """
+        
+        for measure in transparency.get('privacy_measures', []):
+            html += f"""
+                    <div style="background: white; padding: 1rem; border-radius: 8px; border-left: 3px solid var(--success);">
+                        <p style="color: #374151; margin: 0; font-size: 0.9rem;">
+                            <strong style="color: var(--success);">✓</strong> {measure}
+                        </p>
+                    </div>
+            """
+        
+        html += f"""
+                </div>
+            </div>
+            
+            <!-- Report Metadata -->
+            <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #eff6ff, #dbeafe); border-radius: 12px; text-align: center;">
+                <p style="color: #1e40af; font-weight: 600; margin: 0; font-size: 1rem;">
+                    📅 Report Generated: {transparency.get('generated_at', 'N/A')}
+                </p>
+                <p style="color: #6b7280; font-size: 0.85rem; margin-top: 0.5rem;">
+                    This transparency report updates in real-time and reflects the current system state.
+                </p>
+                <p style="color: #6b7280; font-size: 0.85rem; margin-top: 0.3rem;">
+                    <em>Our commitment: Total honesty about what we can and cannot do.</em>
+                </p>
+            </div>
+        </div>
+        """
+        
+        return html
+        
+    except Exception as e:
+        return f"""
+        <div class="ai-response" style="border-left-color: #ef4444;">
+            <h3>❌ Error Generating Transparency Report</h3>
+            <p>Failed to generate transparency report: {str(e)}</p>
+            <p style="font-size: 0.9rem; color: #6b7280; margin-top: 1rem;">
+                Please ensure Responsible AI services are enabled and try again.
+            </p>
+        </div>
+        """
 def create_stats_chart(stats: Dict) -> go.Figure:
     """Create statistics visualization"""
     
@@ -969,7 +1945,7 @@ def create_stats_chart(stats: Dict) -> go.Figure:
 
 # Create Gradio Interface
 with gr.Blocks(
-    title="Smart Energy Forecasting System - Professional Edition",
+    title="Smart Energy Forecasting System - Professional Edition with Business Model",
     theme=gr.themes.Soft(
         primary_hue="indigo",
         secondary_hue="purple",
@@ -982,25 +1958,43 @@ with gr.Blocks(
         .gr-button-primary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
             border: none !important;
+            font-weight: 700 !important;
+            transition: all 0.3s ease !important;
         }
         .gr-button-primary:hover {
-            transform: translateY(-2px);
+            transform: translateY(-2px) !important;
             box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4) !important;
+        }
+        .gr-button-secondary {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+            color: white !important;
+            border: none !important;
         }
     """
 ) as demo:
     
     gr.HTML("""
-        <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; margin-bottom: 2rem;">
-            <h1 style="color: white; font-size: 3rem; margin-bottom: 0.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
+        <div class="gradient-bg" style="text-align: center; padding: 3rem 2rem; border-radius: 24px; margin-bottom: 2rem; position: relative;">
+            <h1 style="color: white; font-size: 3.5rem; margin-bottom: 0.8rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); font-weight: 900;">
                 ⚡ Smart Energy Forecasting System
             </h1>
-            <h2 style="color: rgba(255,255,255,0.9); font-size: 1.5rem; font-weight: 400;">
-                Multi-Agent AI System with Advanced Analytics
+            <h2 style="color: rgba(255,255,255,0.95); font-size: 1.6rem; font-weight: 400; margin-bottom: 0.5rem;">
+                Enterprise-Grade Multi-Agent AI Platform
             </h2>
-            <p style="color: rgba(255,255,255,0.8); margin-top: 1rem; font-size: 1.1rem;">
-                Professional Energy Management Dashboard | Powered by Claude AI
+            <p style="color: rgba(255,255,255,0.9); margin-top: 1.5rem; font-size: 1.2rem;">
+                🤖 Powered by Claude AI | 🌍 Transforming Energy Management Worldwide
             </p>
+            <div style="margin-top: 2rem;">
+                <span style="background: rgba(255,255,255,0.2); padding: 0.6rem 1.5rem; border-radius: 25px; color: white; font-weight: 600; margin: 0 0.5rem; backdrop-filter: blur(10px);">
+                    Real-Time Forecasting
+                </span>
+                <span style="background: rgba(255,255,255,0.2); padding: 0.6rem 1.5rem; border-radius: 25px; color: white; font-weight: 600; margin: 0 0.5rem; backdrop-filter: blur(10px);">
+                    AI-Powered Optimization
+                </span>
+                <span style="background: rgba(255,255,255,0.2); padding: 0.6rem 1.5rem; border-radius: 25px; color: white; font-weight: 600; margin: 0 0.5rem; backdrop-filter: blur(10px);">
+                    Carbon Neutral Ready
+                </span>
+            </div>
         </div>
     """)
     
@@ -1087,6 +2081,7 @@ with gr.Blocks(
         )
     
     # ===== TAB 3: Search & Analytics =====
+    # ===== TAB 3: Search & Analytics =====
     with gr.Tab("🔍 Search & Analytics"):
         gr.Markdown("## Search Historical Data")
         
@@ -1130,6 +2125,27 @@ with gr.Blocks(
             get_system_stats_display,
             outputs=[stats_output, stats_chart]
         )
+        
+        # NEW TRANSPARENCY SECTION
+        gr.Markdown("---")
+        gr.Markdown("## 🔍 System Transparency & Disclosure")
+        gr.Markdown("""
+        View complete, honest disclosure of system capabilities, limitations, data sources, and privacy measures.
+        
+        **Why Transparency Matters:**
+        - ✅ Know exactly what the system CAN do
+        - ⚠️ Understand what it CANNOT do (limitations)
+        - 📊 See where data comes from and how reliable it is
+        - 🔒 Verify privacy and security protections
+        """)
+        
+        transparency_btn = gr.Button("📋 Generate Transparency Report", variant="secondary", size="lg")
+        transparency_output = gr.HTML()
+        
+        transparency_btn.click(
+            get_transparency_report_display,
+            outputs=[transparency_output]
+        )
     
     # ===== TAB 4: About =====
     with gr.Tab("ℹ️ About"):
@@ -1166,15 +2182,6 @@ with gr.Blocks(
         - Carbon intensity tracking
         - System performance metrics
         
-        ## 🎓 Academic Project
-        **Course**: Information Retrieval and Web Analytics (IT 3041)  
-        **Institution**: SLIIT  
-        **Version**: 2.0  
-        **Technology Stack**: Python, Gradio, Plotly, SQLAlchemy, Claude AI
-        
-        ## 📧 Support
-        For questions or issues, contact your course instructor.
-        
         ---
         
         <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); border-radius: 16px; margin-top: 2rem;">
@@ -1183,17 +2190,43 @@ with gr.Blocks(
             </p>
         </div>
         """)
-
-# ============================================================================
-# LAUNCH
-# ============================================================================
+    with gr.Tab("💼 Business Model & Pricing"):
+        with gr.Row():
+            with gr.Column():
+                commercial_content = gr.HTML(value=create_commercialization_content())
+        
+        with gr.Row():
+            with gr.Column():
+                pricing_content = gr.HTML(value=create_pricing_tiers())
+        
+        with gr.Row():
+            with gr.Column():
+                deployment_content = gr.HTML(value=create_deployment_strategy())
+        
+        with gr.Row():
+            with gr.Column():
+                business_canvas = gr.HTML(value=create_business_model_canvas())
+        
+        gr.Markdown("""
+        ---
+        ### 📞 Ready to Transform Your Energy Management?
+        
+        **Contact us for a personalized demo and pricing consultation:**
+        - 📧 Email: sales@smartenergy-ai.com
+        - 📱 Phone: +1 (555) 123-4567
+        - 🌐 Website: www.smartenergy-ai.com
+        - 💬 Live Chat: Available 24/7
+        
+        **Special Launch Offer:** First 50 customers get 3 months free on Professional plan! 🎉
+        """)
 
 def launch_interface():
-    """Launch the spectacular interface"""
+    """Launch the enhanced spectacular interface"""
     print("\n" + "="*70)
-    print("🚀 LAUNCHING SMART ENERGY FORECASTING SYSTEM")
+    print("🚀 LAUNCHING ENHANCED SMART ENERGY FORECASTING SYSTEM")
     print("="*70)
-    print("\n✨ Starting spectacular UI...")
+    print("\n✨ Starting spectacular UI with commercialization features...")
+    print("💼 Business model and pricing included")
     print("🌐 Interface will open in your browser")
     print("📊 All systems ready!\n")
     
@@ -1202,7 +2235,6 @@ def launch_interface():
         server_port=7860,
         share=False,
         show_api=False,
-        favicon_path=None,
         inbrowser=True
     )
 
