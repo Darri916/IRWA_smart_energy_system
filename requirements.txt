@@ -1,27 +1,66 @@
-# Core ML/AI libraries
-torch
-transformers
-sentence-transformers
-scikit-learn
-
-# Web framework
+# Core Framework
 gradio
+fastapi
+uvicorn
 
-# Data processing
-pandas
+# Data Processing
 numpy
+pandas
+scipy
 
 # Visualization
 plotly
 matplotlib
-seaborn
 
-# API requests
+# AI & ML - Better Models
+anthropic  # For Claude API
+openai  # For GPT API (backup)
+transformers
+torch
+sentence-transformers  # Better embeddings
+
+# NLP - Enhanced
+spacy
+nltk
+textblob
+
+# Database
+sqlalchemy
+alembic
+
+# Security
+cryptography
+pyjwt
+bcrypt
+python-dotenv
+
+# API Integration
 requests
-beautifulsoup4
+aiohttp
 
-# NLP 
-# spacy
+# Weather API
+pyowm  # Better OpenWeatherMap wrapper
 
-# Development tools
-# jupyter  
+# Validation
+pydantic
+email-validator
+
+# Information Retrieval
+whoosh
+rank-bm25
+
+# Utilities
+python-dateutil
+pytz
+pyyaml
+
+# Testing
+pytest
+pytest-asyncio
+
+# Logging & Monitoring
+loguru
+
+# Documentation
+mkdocs
+mkdocs-material
