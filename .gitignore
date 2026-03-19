@@ -9,6 +9,7 @@ agents/__pycache__
 ai_services/__pycache__
 config/__pycache__
 /database/__pycache__
+/information_retrieval/__pycache__
 /security/__pycache__
 
 # IDE
